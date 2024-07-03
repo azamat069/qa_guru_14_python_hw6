@@ -64,9 +64,9 @@ def test_find_suitable_user():
     for i in users:
         if i['name'] == 'Olga':
             suitable_users = i
-
-
     assert suitable_users == {"name": "Olga", "age": 45}
+
+
 
     # TODO найдите всех пользователей младше 20 лет
     suitable_users = []
@@ -74,7 +74,6 @@ def test_find_suitable_user():
     for i in users:
         if i['age'] < 20:
             suitable_users.append(i)
-
     assert suitable_users == [
         {"name": "Stanislav", "age": 15},
         {"name": "Maria", "age": 18},
@@ -92,11 +91,12 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 
-def arg_function(function, *args):
-    func_name = function.__name__.replace('_', ' ').title()
-    arg_str = ', '.join([*args])
-    print(f'{func_name} [{arg_str}]')
-    return f'{func_name} [{arg_str}]'
+def arg_function(func, *args):
+    func_name = func.__name__.replace('_', ' ').title()
+    args_str = ', '.join([*args])
+    print(f'{func_name} [{args_str}]')
+    return f'{func_name} [{args_str}]'
+
 def test_readable_function():
     open_browser(browser_name="Chrome")
     go_to_companyname_homepage(page_url="https://companyname.com")
